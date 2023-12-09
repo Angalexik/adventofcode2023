@@ -13,4 +13,8 @@
   (icollect [_ line (ipairs (lines file))]
     (strtolist line)))
 
-{:lines lines :map2d map2d :read read}
+(fn parse-numbers [str]
+  (icollect [_ s (ipairs (utils.split str " "))]
+    (tonumber s)))
+
+{:lines lines :map2d map2d :read read :parse-numbers parse-numbers}
